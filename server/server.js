@@ -9,6 +9,10 @@ const server = new ApolloServer({
   resolvers,
 });
 
+
+app.use('/graphql', expressMiddleware(server, {
+  context: authMiddleware
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
