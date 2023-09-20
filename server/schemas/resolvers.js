@@ -25,7 +25,7 @@ const resolvers = {
       throw new AuthenticationError("Incorrect credentials");
     }
     const token = signToken(user);
-    return { toke, user };
+    return { token, user };
     },
     createUser: async (parent, args) => {
       const user = awaitUser.create(args);
